@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .auth-form {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        .auth-form h2 {
+            text-align: center;
+        }
+
+        .auth-form input[type="text"],
+        .auth-form input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .auth-form input[type="password"]:focus,
+        .auth-form input[type="text"]:focus {
+            border-color: #7d66ff;
+            outline: none;
+        }
+
+        .auth-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0a0620;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s; 
+            margin-top: 15px;
+        }
+
+        .auth-form button:hover {
+            background-color: #7d66ff;
+            transform: scale(1.05);
+        }
+
+        .show-password {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .show-password input {
+            margin-right: 10px;
+        }
+
+        .message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-form">
+        <h2>Đăng Ký</h2>
+        <input type="text" placeholder="Email" id="register-email" required>
+        <input type="password" placeholder="Mật Khẩu" id="register-password" required>
+        <input type="password" placeholder="Xác nhận Mật Khẩu" id="confirm-password" required>
+        
+        <div class="show-password">
+            <input type="checkbox" id="toggle-password" onclick="togglePassword()">
+            <label for="toggle-password">Hiện mật khẩu</label>
+        </div>
+
+        <button onclick="register()">Đăng Ký</button>
+        <p>Đã có tài khoản? <a href="Đăng nhập.html">Đăng Nhập</a></p>
+        <p class="message" id="message"></p>
+    </div>
+
+    <script>
+        function register() {
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('message').textContent = 'Vui lòng nhập một email hợp lệ.';
+                return;
+            }
+
+            if (password.length < 6) {
+                document.getElementById('message').textContent = 'Mật khẩu phải chứa ít nhất 6 ký tự.';
+                return;
+            }
+
+            const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+            if (!passwordRegex.test(password)) {
+                document.getElementById('message').textContent = 'Mật khẩu phải bao gồm chữ cái, số và ký tự đặc biệt.';
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                document.getElementById('message').textContent = 'Mật khẩu xác nhận không khớp.';
+                return;
+            }
+
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userPassword', password);
+
+            alert('Đăng ký thành công!');
+            window.location.href = 'Đăng nhập.html';
+        }
+
+        // Chức năng hiển thị/ẩn mật khẩu
+        function togglePassword() {
+            const passwordInput = document.getElementById('register-password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const toggleCheckbox = document.getElementById('toggle-password');
+
+            if (toggleCheckbox.checked) {
+                passwordInput.type = 'text';
+                confirmPasswordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+                confirmPasswordInput.type = 'password';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icon Font Link Fontawase -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+
+    <!-- Link file Css custom -->
+    <link rel="stylesheet" href="style.css">
+
+
+    <title>Coffee Del Luna</title>
+    <style>
+               
+        .img-banner {
+            width: 100%; 
+            height: 400px; 
+            position: relative; 
+            overflow: hidden; 
+            background-color: #333; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            box-sizing: border-box;
+            z-index: 999;
+        }
+    
+        
+        .banner {
+            width: 100%; 
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease, opacity 0.3s ease; 
+           
+        }
+    
+        
+    
+        
+        @media screen and (max-width: 768px) {
+            .img-banner {
+                height: 300px;
+            }
+        }
+    
+        @media screen and (max-width: 480px) {
+            .img-banner {
+                height: 250px; 
+            }
+        }
+        
+        .main-container {
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            width: 100%; 
+            gap: 1px; 
+            box-sizing: border-box; 
+            margin: 0 auto; 
+        }
+    
+        
+        .thumbex-wrapper {
+            display: flex; 
+            flex-wrap: wrap;
+            gap: 20px; 
+            justify-content: center; 
+            padding: 20px; 
+            width: 100%;
+            box-sizing: border-box; 
+            overflow-x: auto; 
+        }
+    
+        
+        .thumbex {
+            width: 250px;
+            height: 300px; 
+            flex: 0 0 auto; 
+            overflow: hidden; 
+            outline: 2px solid white; 
+            outline-offset: -15px; 
+            background-color: rgb(205, 179, 139); 
+            box-shadow: 5px 10px 40px 5px #00000080; 
+            border-radius: 10px; 
+            transition: transform 0.3s ease-out; 
+        }
+    
+        
+        .thumbnail {
+            overflow: hidden; 
+            width: 100%; 
+            height: 300px; 
+            position: relative;
+            opacity: 0.8;
+            transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+            border-radius: 10px; 
+        }
+    
+        
+        img {
+            position: absolute; 
+            z-index: 1;
+            left: 50%; 
+            top: 50%; 
+            height: 115px; 
+            width: auto; 
+            transform: translate(-50%, -50%); 
+            backface-visibility: hidden; 
+            transition: transform 0.4s ease-out;
+        }
+    
+       
+        span {
+            position: absolute; 
+            z-index: 2;
+            top: calc(50% - 20px); 
+            left: 0;
+            right: 0; 
+            color: white; 
+            font-size: 24px; 
+            font-weight: 300; 
+            font-family: 'Raleway', sans-serif; 
+            padding: 10px; 
+            margin: 0 45px; 
+            text-align: center; 
+            letter-spacing: 0.2px; 
+            transition: opacity 0.3s ease-out; 
+        }
+    
+       
+        .thumbnail:hover {
+            transform: scale(1.1); 
+            opacity: 1;
+        }
+    
+        
+        .thumbnail:hover span {
+            opacity: 0;
+        }
+    
+       
+        .thumbex:hover {
+            transform: translateY(-10px); 
+        }
+    
+       
+        @media screen and (max-width: 1200px) {
+            .thumbex-wrapper {
+                overflow-x: auto; 
+                scrollbar-width: thin; 
+                -webkit-overflow-scrolling: touch; 
+            }
+    
+            
+            .thumbex-wrapper::-webkit-scrollbar {
+                height: 8px; 
+            }
+    
+            .thumbex-wrapper::-webkit-scrollbar-track {
+                background: #f1f1f1; 
+            }
+    
+            .thumbex-wrapper::-webkit-scrollbar-thumb {
+                background: #888; 
+                border-radius: 4px; 
+            }
+    
+            .thumbex {
+                width: 200px; 
+                height: 250px; 
+            }
+        }
+    
+        
+        @media screen and (max-width: 768px) {
+            .thumbex-wrapper {
+                gap: 15px; 
+            }
+    
+            .thumbex {
+                width: 180px; 
+                height: 220px; 
+            }
+        }
+    
+        
+        @media screen and (max-width: 480px) {
+            .thumbex-wrapper {
+                flex-direction: column; 
+                align-items: center; 
+            }
+    
+            .thumbex {
+                width: 90%;
+                height: 200px; 
+            }
+        }
+            footer {
+            background: #c97035be; 
+            padding: 20px; 
+            text-align: center; 
+    
+        }
+    
+        .footer-content {
+            display: flex; 
+            justify-content: space-around; 
+            flex-wrap: wrap; 
+        }
+    
+        .footer-section {
+            flex: 1;
+            min-width: 200px; 
+            margin: 10px; 
+        }
+    
+        .footer-section h4 {
+            margin-bottom: 10px; 
+        }
+    
+        .footer-section p, .footer-section ul {
+            margin: 0; 
+            padding: 0; 
+        }
+    
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0; 
+        }
+    
+        .footer-section ul li {
+            margin: 5px 0; 
+        }
+    
+        .footer-section a {
+            text-decoration: none; 
+            color: #007bff; 
+        }
+    
+        .footer-section a:hover {
+            text-decoration: underline; 
+        }
+    
+        .footer-bottom {
+            margin-top: 20px; 
+            font-size: 14px; 
+            color: #6c757d; 
+        }           
+    
+    </style>
+    
+    
+    </head>
+    <body>
+    
+    <!-- Header section starts -->
+    
+    <header class="header">
+    
+        <a href="index.html" class="logo">
+            <i class="fas fa-mug-hot">COFFEE</i>
+        </a>
+    
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="giới thiệu.html">Giới thiệu</a>
+            <a href="menu.html">Menu</a>
+            <a href="CÀ PHÊ.html">CÀ phê</a>
+            <a href="BÁNH NGỌT.HTML">Bánh ngọt</a>
+            <a href="SODA.HTML">Soda</a>
+            <a href="LIÊN HỆ.HTML">LIÊN HỆ</a>
+        </nav>
+
+        <div class="icons">
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+        
+        
+        <div id="cart-dropdown" class="cart-dropdown">
+            <div id="cart-items">
+                
+            </div>
+            <div class="cart-footer">
+                <a href="cart.html">Xem giỏ hàng</a>
+            </div>
+        </div>
+
+        <div class="search-from">
+            <input type="search" id="search-box" placeholder="search here ......">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+
+        
+        <a title="Đăng nhập" class="login-button" href="Đăng nhập.html">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+            </svg>
+        </a>
+    </header>
+    <div class="img-banner">
+        <img class="banner" src="img/banner 1.jpg">
+    </div>
+        <div>
+            <div class="main-container">
+                <a href="cà phê latte.html">
+                    <div class="thumbex">
+                        <div class="thumbnail">
+                            <img src="img/cà-phê-latte.jpg">    
+                            <span>Cà phê latte</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="cà phê sữa đá.html">
+                    <div class="thumbex">
+                        <div class="thumbnail">
+                            <img src="img/CÀ PHÊ SỮA ĐÁ.webp">
+                            <span>Cà phê sữa đá</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="matcha latte.html">
+                    <div class="thumbex">
+                        <div class="thumbnail">
+                            <img src="img/matcha latte.webp">
+                            <span>Matcha latte</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="bạc xỉu.html">
+                    <div class="thumbex">
+                        <div class="thumbnail">
+                            <img src="img/bạc xỉu.jpg">
+                            <span>Bạc xỉu</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="màu đá.html">
+                <div class="thumbex">
+                    <div class="thumbnail">
+                            <img src="img/màu-đá.jpg">
+                        <span>MÀu đá</span>
+                    </div>
+                </div>  
+                </a>
+                <a href="espresso.html">
+                    <div class="thumbex">
+                        <div class="thumbnail">
+                            <img src="img/espresso_cafe.jpg">
+                            <span>ESPRESSO</span>
+                        </div>
+                    </div>  
+                </a>
+                <a href="machiato.html">
+                    <div class="thumbex">
+                        <div class="thumbnail">
+                            <img src="img/machiato_cafe.jpg">
+                            <span>MACHIATO</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="ca cao dừa.html">
+                    <div class="thumbex">
+                        <div class="thumbnail">
+                            <img src="img/ca-cao-dừa.jpg">
+                            <span>CA CAO DỪA</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="capuchino.html">
+                <div class="thumbex">
+                    <div class="thumbnail">
+                            <img src="img/Capuchino.jpg">
+                        <span>CAPUCHINO</span>
+                    </div>
+                </a>
+                <a href="den.html">
+                    <div class="thumbex">
+                        <div class="thumbnail">
+                            <img src="img/ĐEN.jpg">
+                            <span>CÀ PHÊ ĐEN</span>
+                        </div>
+                    </div> 
+                </a>       
+            </div>
+        </div>
+
+        <section class="flooter">>
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>Thông tin công ty</h4>
+                        <p>Công ty TNHH 3 Thành viên</p>
+                        <p>Địa chỉ: Kiến An Hải Phòng</p>
+                        <p>Điện thoại: 0813468978</p>
+                        <p>Email:dcmthangbaom</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Liên kết nhanh</h4>
+                        <ul style="list-style-type: none; padding: 0;">
+                            <li><a href="Giới thiêu.html">Giới thiệu</a></li>
+                            <li><a href="menu.html">Sản phẩm</a></li>
+                            <li><a href="Liên hệ.html">Liên hệ</a></li>
+                            <li><a href="Coffee del luna.html">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Kết nối với chúng tôi</h4>
+                        <a href="https://web.facebook.com/profile.php?id=100074914901177"><img src="facebook-icon.png" alt="Facebook" style="width: 24px; height: 24px;">Facebook</a>
+                        <a href="https://www.instagram.com/dotruong.5?fbclid=IwY2xjawGiRx1leHRuA2FlbQIxMAABHQ4rfqHhkio8DzpL9osgZbvrnp2Sgc8I1oAUoKa1774Vj4jp72nZ6hgN3w_aem_FLl-c7pxDAacQvEv8DCABw"><img src="instagram-icon.png" alt="Instagram" style="width: 24px; height: 24px;">Instagram</a>
+                        <a href=""><img src="twitter-icon.png" alt="Twitter" style="width: 24px; height: 24px;"></a>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom" style="margin-top: 20px;">
+                    <small>&copy; 2030 Công ty TNHH Huy gà. Bảo lưu mọi quyền.</small>
+                </div>
+
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+                <a href="#" class="fab fa-pinterest"></a>
+            </div>
+
+            
+            
+
+        </section>
+
+   
+    <script src="JavaScript.js"></script>
+
+</body>
+</html>
